@@ -45,14 +45,14 @@ const Index = props => {
   }, [])
   useInterval(() => {
     const time = new Date();
-    if (time.getTime() - timeStamp > 2000) {
+    if (time.getTime() - timeStamp > 4000) {
       if (moveForward) {
         set(state => (state + 1) % allImagesArr.length)
       } else {
         set(state => state > 0 ? state - 1 : allImagesArr.length - 1)
       }
     }
-  }, 2000
+  }, 4000
   )
   return (
     <Layout fullWidth>
