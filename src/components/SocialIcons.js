@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import twitterLink from '../icons/twitter.svg'
 import facebookLink from '../icons/facebook.svg'
 import callLink from '../icons/gmail.svg'
+import instagramLink from '../icons/instagram.svg'
 const StyledSocial = styled.div`
     display: flex;
     padding: 5px;
@@ -20,12 +21,20 @@ const StyledSocial = styled.div`
     border-radius:50%;
   }
 .facebook{
-  margin-right:20px;
-  background:#3b5998;
+  margin:0 20px;
 }
 `;
 const SocialIcons = props => (
   <StyledSocial >
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.twitter.com/kYashRathore"
+      className="social-link instagram"
+      title="instagram"
+    >
+      <img src={instagramLink} alt="twitter link" />
+    </a>
     <a
       target="_blank"
       rel="noopener noreferrer"

@@ -19,7 +19,6 @@ height:70vh;
   flex:15;
   position:relative;
   height:70vh;
-  border:10px solid white;
   box-shadow:0 2px 17px  0;
   overflow:hidden;
   border-radius:10px;
@@ -39,6 +38,8 @@ export const ExtendStyles = styled(StyledCarousal)`
   text-align:left;
   padding:0 20px;
   overflow-y:scroll;
+  background:burlywood;
+  color:maroon;
   &::-webkit-scrollbar {
     width: 10px;
   }

@@ -8,7 +8,7 @@ import SocialIcons from './SocialIcons';
 
 const StyledHeader = styled.header`
 display:flex;
-background:rgba(98, 98, 51);
+background:burlywood;
 color:white;
 height:120px;
 width:100vw;
@@ -21,7 +21,7 @@ margin-bottom:-10px;
   margin: 0;
   margin-bottom: 20px;
   font-weight: 200;
-  color: burlywood;
+  color: maroon;
   text-transform: uppercase;
   text-shadow: 2px 2px;
   text-decoration: none;
