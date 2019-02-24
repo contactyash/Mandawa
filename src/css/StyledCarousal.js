@@ -7,6 +7,7 @@ width:80%;
 text-align:center;
 margin:0 auto;
 height:70vh;
+
 .button{
  flex:1;
  align-self:center;
@@ -32,6 +33,14 @@ height:70vh;
  background:rgba(0,0,0,0.1);
  cursor:pointer;
 }
+   @media only screen and (max-width: 576px) {
+     width:100%;
+   .button{
+     display:none;
+   }
+
+
+  }
 `
 export const ExtendStyles = styled(StyledCarousal)`
 .imageDiv {

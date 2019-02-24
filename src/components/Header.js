@@ -73,6 +73,15 @@ margin-bottom:-10px;
   background:firebrick;
 
 }
+@media only screen and (max-width: 576px) {
+  overflow:hidden;
+  .logo-text{
+    font-size:20px;
+  }
+ .logo-div{
+   margin-left:10px;
+ }
+}
 `;
 const Header = (props) => {
   return (
