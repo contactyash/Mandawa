@@ -16,7 +16,7 @@ export const BgImage = styled(Image)`
 
   // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
   & > img {
-    object-fit:contain !important; // or whatever
+    object-fit:cover !important; // or whatever
     object-position: 0% 0% !important; // or whatever
     font-family: 'object-fit: cover !important; object-position: 0% 0% !important;' // needed for IE9+ polyfill
   }
@@ -27,14 +27,14 @@ export default function ImageSlider({ imagesArr, index, direction, fadeOn }) {
   const forwardTransitions = useTransition(index, p => p, {
     from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: 'translate3d(-100%,0,0)' },
+    leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
     config: (item, state) =>
       state === 'leave' ? { duration: 0 } : config.default,
   })
   const backwordTransitions = useTransition(index, p => p, {
     from: { opacity: 0, transform: 'translate3d(-100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: 'translate3d(100%,0,0)' },
+    leave: { opacity: 0, transform: 'translate3d(50%,0,0)' },
     config: (item, state) =>
       state === 'leave' ? { duration: 0 } : config.default,
   })
