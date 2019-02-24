@@ -38,8 +38,7 @@ export const ExtendStyles = styled(StyledCarousal)`
   text-align:left;
   padding:0 20px;
   overflow-y:scroll;
-  background:burlywood;
-  color:maroon;
+  color:burlywood;
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -48,7 +47,7 @@ export const ExtendStyles = styled(StyledCarousal)`
 
   }
  &::-webkit-scrollbar-thumb {
-    background: gray;
+    background: burlywood;
     border-radius: 10px;
     height:100px;
 
