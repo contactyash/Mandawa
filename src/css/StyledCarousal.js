@@ -22,6 +22,7 @@ height:70vh;
   border:10px solid white;
   box-shadow:0 2px 17px  0;
   overflow:hidden;
+  border-radius:10px;
 
 }
 .imgNav{
@@ -33,6 +34,27 @@ height:70vh;
  cursor:pointer;
 }
 `
+export const ExtendStyles = styled(StyledCarousal)`
+.imageDiv {
+  text-align:left;
+  padding:0 20px;
+  overflow-y:scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: none;
 
+  }
+ &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+    height:100px;
+
+  }
+
+}
+
+`;
 export default StyledCarousal;
 

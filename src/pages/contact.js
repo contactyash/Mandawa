@@ -1,22 +1,20 @@
 import React from 'react';
-import StyledCarousal from '../css/StyledCarousal'
 import Layout from '../components/Layout'
-const Hotels = props => {
+import { ExtendStyles } from '../css/StyledCarousal'
+const Contact = props => {
   return (
     <Layout fullWidth>
-      <StyledCarousal>
+      <ExtendStyles>
         <div className="prev button">
-          {/* <div onClick={handlePrev} className="imgNav"></div> */}
         </div>
         <div className="imageDiv">
-          {/* <ImageSlider imagesArr={imagesArr(allImagesArr)} index={index} direction={moveForward} /> */}
+          <h1>Contact</h1>
         </div>
         <div className="next button">
-          {/* <div onClick={handleNext} className="imgNav"></div> */}
         </div>
-      </StyledCarousal>
+      </ExtendStyles>
     </Layout>
   );
 };
 
-export default Hotels;
+export default Contact;

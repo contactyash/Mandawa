@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ImageSlider, { BgImage } from '../components/Carousal'
 import { useTransition, animated } from 'react-spring'
+import useInterval from '../components/useInterval';
 import StyledCarousal from '../css/StyledCarousal'
 
 
@@ -13,6 +14,9 @@ const Index = props => {
   //object with key as img name without extension
   const [index, set] = useState(0)
   const [moveForward, setDirection] = useState(true)
+  const [timeStamp, setTimeStamp] = useState(0);
+  const [fadeOn, setFade] = useState(true);
+
   const allProjectsImages = {};
   props.data.placeholderImage.edges.forEach(node => {
     const imageName = node.node.childImageSharp.fluid.originalName.replace(
@@ -25,16 +29,31 @@ const Index = props => {
     ({ style }) => <animated.div className="image" style={{ ...style }}><BgImage fluid={arr[1]} /></animated.div>
 
   ));
-  const imagesArr = useCallback((imagesArr) => imagesArr, [])
   const handlePrev = useCallback(() => {
+    const timeStamp = new Date();
     setDirection(false)
-    set(state => state > 0 ? state - 1 : 0)
+    setFade(false)
+    setTimeStamp(timeStamp.getTime())
+    set(state => state > 0 ? state - 1 : allImagesArr.length - 1)
   }, [])
   const handleNext = useCallback(() => {
+    const timeStamp = new Date();
     setDirection(true)
-    set(state => (state + 1) % 50)
+    setFade(false)
+    setTimeStamp(timeStamp.getTime())
+    set(state => (state + 1) % allImagesArr.length)
   }, [])
-
+  useInterval(() => {
+    const time = new Date();
+    if (time.getTime() - timeStamp > 2000) {
+      if (moveForward) {
+        set(state => (state + 1) % allImagesArr.length)
+      } else {
+        set(state => state > 0 ? state - 1 : allImagesArr.length - 1)
+      }
+    }
+  }, 2000
+  )
   return (
     <Layout fullWidth>
       <StyledCarousal>
@@ -42,7 +61,13 @@ const Index = props => {
           <div onClick={handlePrev} className="imgNav"></div>
         </div>
         <div className="imageDiv">
-          <ImageSlider imagesArr={imagesArr(allImagesArr)} index={index} direction={moveForward} />
+          <ImageSlider
+            imagesArr={allImagesArr}
+            index={index}
+            timeStamp={timeStamp}
+            direction={moveForward}
+            fadeOn={fadeOn}
+          />
         </div>
         <div className="next button">
           <div onClick={handleNext} className="imgNav"></div>

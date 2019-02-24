@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
 import 'typeface-montserrat';
-
+import './test.css';
 const GlobalStyles = createGlobalStyle`
  body {
     margin: 0;
@@ -59,7 +59,7 @@ class Layout extends React.Component {
         <StyledLayout {...rest}>
           <GlobalStyles />
           <Header />
-          <div>{children}</div>
+          <div className="rest-page">{children}</div>
         </StyledLayout>
       </ThemeProvider>
     );

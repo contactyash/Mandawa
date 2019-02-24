@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import Logo from './Logo';
+import SocialIcons from './SocialIcons';
 
 
 
@@ -9,9 +10,9 @@ const StyledHeader = styled.header`
 display:flex;
 background:rgba(98, 98, 51);
 color:white;
-height:150px;
+height:120px;
 width:100vw;
-margin-bottom:-40px;
+margin-bottom:-10px;
 .logo-div{
   margin-left:-100px;
 }
@@ -68,6 +69,10 @@ margin-bottom:-40px;
 .last{
   flex:4
 }
+.active-nav-link{
+  background:firebrick;
+
+}
 `;
 const Header = (props) => {
   return (
@@ -79,18 +84,16 @@ const Header = (props) => {
           <p className="logo-text">Mandawa Heritage Tours</p>
         </div>
         <ul>
-          <li><Link to="/">home</Link></li>
-          <li><Link to="/about">about</Link></li>
-          <li><Link to="/attractions">attractions</Link></li>
-          <li><Link to="/services">services</Link></li>
-          <li><Link to="/hotels">hotels</Link></li>
-          <li><Link to="/packages">packages</Link></li>
-          <li><Link to="/transportations">transportation</Link></li>
-          <li><Link to="/contact">contact</Link></li>
+          <Link activeClassName="active-nav-link" to="/"><li>home</li></Link>
+          <Link activeClassName="active-nav-link" to="/about"><li>about</li></Link>
+          <Link activeClassName="active-nav-link" to="/attractions"><li>attractions</li></Link>
+          <Link activeClassName="active-nav-link" to="/services"><li>services</li></Link>
+          <Link activeClassName="active-nav-link" to="/experiences"><li>Experiences</li></Link>
+          <Link activeClassName="active-nav-link" to="/contact"><li>contact</li></Link>
         </ul>
       </div>
       <div className="last">
-
+        <SocialIcons />
       </div>
     </StyledHeader>
   )
