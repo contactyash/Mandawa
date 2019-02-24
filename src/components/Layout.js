@@ -40,6 +40,9 @@ const StyledLayout = styled.div`
       padding: 20px 15px;
     }
   }
+  .rest-page{
+    background:maroon;
+  }
 `;
 
 const theme = {
