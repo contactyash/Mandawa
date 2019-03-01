@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import twitterLink from '../icons/twitter.svg'
-import facebookLink from '../icons/facebook.svg'
-import callLink from '../icons/gmail.svg'
+import { FacebookIcon, GmailIcon, InstagramIcon } from '../icons/icons'
 import instagramLink from '../icons/instagram.svg'
 const StyledSocial = styled.div`
     display: flex;
@@ -25,7 +24,7 @@ const StyledSocial = styled.div`
 }
 `;
 const SocialIcons = props => (
-  <StyledSocial >
+  <StyledSocial  >
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -33,7 +32,7 @@ const SocialIcons = props => (
       className="social-link instagram"
       title="instagram"
     >
-      <img src={instagramLink} alt="twitter link" />
+      <InstagramIcon invert={props.invert} />
     </a>
     <a
       target="_blank"
@@ -42,7 +41,7 @@ const SocialIcons = props => (
       className="social-link facebook"
       title="facebook"
     >
-      <img src={facebookLink} alt="twitter link" />
+      <FacebookIcon invert={props.invert} />
     </a>
     <a
       target="_blank"
@@ -51,7 +50,7 @@ const SocialIcons = props => (
       className="social-link twitter"
       title="twitter"
     >
-      <img src={twitterLink} alt="twitter link" />
+      <GmailIcon invert={props.invert} />
     </a>
   </StyledSocial >
 );

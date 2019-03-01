@@ -3,7 +3,7 @@ import { ExtendStyles } from '../css/StyledCarousal'
 import Layout from '../components/Layout'
 const Hotels = props => {
   return (
-    <Layout fullWidth>
+    <Layout invert fullWidth>
       <ExtendStyles>
         <div className="prev button">
         </div>

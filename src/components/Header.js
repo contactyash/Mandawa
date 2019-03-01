@@ -8,8 +8,7 @@ import SocialIcons from './SocialIcons';
 
 const StyledHeader = styled.header`
 display:flex;
-background:burlywood;
-color:white;
+background:${props => props.invert ? props.theme.complementary : props.theme.primary};
 height:120px;
 width:100vw;
 margin-bottom:-10px;
@@ -21,7 +20,7 @@ margin-bottom:-10px;
   margin: 0;
   margin-bottom: 20px;
   font-weight: 200;
-  color: maroon;
+  color:${props => props.invert ? props.theme.primary : props.theme.complementary};
   text-transform: uppercase;
   text-shadow: 2px 2px;
   text-decoration: none;
@@ -36,7 +35,7 @@ margin-bottom:-10px;
   bottom: 1px;
   border-width: 0 0 2px;
   border-style: solid;
-  color:maroon;
+  color:${props => props.invert ? props.theme.primary : props.theme.complementary};
 
 }
 .first{
@@ -52,7 +51,7 @@ margin-bottom:-10px;
     align-items:center;
     margin:0;
     padding:0;
-    background:maroon;
+    background:${props => props.invert ? props.theme.primary : props.theme.complementary};
     border-top-left-radius:10px;
     border-top-right-radius:10px;
     li{
@@ -61,7 +60,7 @@ margin-bottom:-10px;
        text-transform:capitalize;
     }
     li:hover{
-      background:firebrick;
+    background: ${props => props.invert ? props.theme.primaryStateColor : props.theme.complementaryStateColor};
     }
   }
 }
@@ -70,7 +69,7 @@ margin-bottom:-10px;
   flex:4
 }
 .active-nav-link{
-  background:firebrick;
+  background: ${props => props.invert ? props.theme.primaryStateColor : props.theme.complementaryStateColor};
 
 }
 @media only screen and (max-width: 576px) {
@@ -85,7 +84,7 @@ margin-bottom:-10px;
 `;
 const Header = (props) => {
   return (
-    <StyledHeader>
+    <StyledHeader {...props}>
       <div className="first">
       </div>
       <div className="middle" >
@@ -102,7 +101,7 @@ const Header = (props) => {
         </ul>
       </div>
       <div className="last">
-        <SocialIcons />
+        <SocialIcons invert={props.invert} />
       </div>
     </StyledHeader>
   )

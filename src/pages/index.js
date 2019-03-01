@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ImageSlider, { BgImage } from '../components/Carousal'
@@ -16,7 +16,6 @@ const Index = props => {
   const [moveForward, setDirection] = useState(true)
   const [timeStamp, setTimeStamp] = useState(0);
   const [fadeOn, setFade] = useState(true);
-
   const allProjectsImages = {};
   props.data.placeholderImage.edges.forEach(node => {
     const imageName = node.node.childImageSharp.fluid.originalName.replace(
@@ -29,6 +28,7 @@ const Index = props => {
     ({ style }) => <animated.div className="image" style={{ ...style }}><BgImage fluid={arr[1]} /></animated.div>
 
   ));
+
   const handlePrev = useCallback(() => {
     const timeStamp = new Date();
     setDirection(false)
@@ -54,9 +54,10 @@ const Index = props => {
     }
   }, 4000
   )
+
   return (
     <Layout fullWidth>
-      <StyledCarousal>
+      <StyledCarousal >
         <div className="prev button">
           <div onClick={handlePrev} className="imgNav"></div>
         </div>

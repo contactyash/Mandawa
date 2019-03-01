@@ -3,7 +3,7 @@ import StyledCarousal from '../css/StyledCarousal'
 import Layout from '../components/Layout'
 const Hotels = props => {
   return (
-    <Layout fullWidth>
+    <Layout invert fullWidth>
       <StyledCarousal>
         <div className="prev button">
           {/* <div onClick={handlePrev} className="imgNav"></div> */}

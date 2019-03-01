@@ -23,7 +23,6 @@ module.exports = {
       fbAppID: '100017939978348'
     }
   },
-  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

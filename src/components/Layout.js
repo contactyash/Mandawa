@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
 const StyledLayout = styled.div`
   a {
     text-decoration: none;
-    color: burlywood;
+    color:${props => props.invert ? props.theme.primary : props.theme.complementary}
   }
   & > div {
     margin-left: auto;
@@ -33,7 +33,7 @@ const StyledLayout = styled.div`
   & > div a:hover {
     box-shadow: 0 2px;
     background: #9acd32;
-    color: ${props => props.theme.complementary};
+    color: ${props => props.invert ? props.theme.complementaryStateColor : props.theme.primarytateColor};
   }
   @media (max-width: 376px) {
     & > div {
@@ -41,27 +41,25 @@ const StyledLayout = styled.div`
     }
   }
   .rest-page{
-    background:maroon;
+    background:${props => props.invert ? props.theme.complementary : props.theme.primary};
   }
 `;
 
 const theme = {
-  primary: '#9acd32', //pink//black
-  complementary: '#020020', //navy//white
-  fontColor: 'rgba(0,0,0,0.84)',
-  bg: '#fcfcfc',
-  red: 'red',
-  textShadow: '#ddd',
-  socialHover: 'rgba(0, 128, 0, 0.2);'
+  primary: "maroon",
+  complementary: "burlywood",
+  primaryStateColor: '#942018',
+  complementaryStateColor: '#e6a268',
 };
 class Layout extends React.Component {
+
   render() {
     const { children, ...rest } = this.props;
     return (
       <ThemeProvider theme={theme}>
-        <StyledLayout {...rest}>
+        <StyledLayout  {...rest}>
           <GlobalStyles />
-          <Header />
+          <Header invert={!this.props.invert} />
           <div className="rest-page">{children}</div>
         </StyledLayout>
       </ThemeProvider>

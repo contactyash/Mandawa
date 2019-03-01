@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import { ExtendStyles } from '../css/StyledCarousal'
 const Attractions = props => {
   return (
-    <Layout fullWidth>
+    <Layout invert fullWidth>
       <ExtendStyles>
         <div className="prev button">
         </div>

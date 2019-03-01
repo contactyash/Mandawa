@@ -6,7 +6,7 @@ import { ExtendStyles } from '../css/StyledCarousal'
 const Hotels = props => {
 
   return (
-    <Layout fullWidth>
+    <Layout invert fullWidth>
       <ExtendStyles>
         <div className="prev button">
           {/* <div onClick={handlePrev} className="imgNav"></div> */}
