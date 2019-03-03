@@ -20,6 +20,8 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 const StyledLayout = styled.div`
+  height:100vh;
+  width:100vw;
   a {
     text-decoration: none;
     color:${props => props.invert ? props.theme.primary : props.theme.complementary}

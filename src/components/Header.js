@@ -9,7 +9,7 @@ import SocialIcons from './SocialIcons';
 const StyledHeader = styled.header`
 display:flex;
 background:${props => props.invert ? props.theme.complementary : props.theme.primary};
-height:120px;
+height:18%;
 width:100vw;
 margin-bottom:-10px;
 .logo-div{
@@ -60,16 +60,23 @@ margin-bottom:-10px;
        text-transform:capitalize;
     }
     li:hover{
-    background: ${props => props.invert ? props.theme.primaryStateColor : props.theme.complementaryStateColor};
-    }
+      background: ${props => props.invert ? props.theme.complementary : props.theme.primary};
+      color: ${props => props.invert ? props.theme.primary : props.theme.complementary};
+      border-top: 1px solid;
+     border-radius: 4px;
+  }
   }
 }
 
 .last{
   flex:4
 }
-.active-nav-link{
-  background: ${props => props.invert ? props.theme.primaryStateColor : props.theme.complementaryStateColor};
+.active-nav-link li{
+  background: ${props => props.invert ? props.theme.complementary : props.theme.primary};
+  color: ${props => props.invert ? props.theme.primary : props.theme.complementary};
+  border-top: 1px solid;
+  border-radius: 4px;
+  margin:0 2px;
 
 }
 @media only screen and (max-width: 576px) {
@@ -91,14 +98,16 @@ const Header = (props) => {
         <div className="logo-div">
           <p className="logo-text">Mandawa Heritage Tours</p>
         </div>
-        <ul>
-          <Link activeClassName="active-nav-link" to="/"><li>home</li></Link>
-          <Link activeClassName="active-nav-link" to="/about"><li>about</li></Link>
-          <Link activeClassName="active-nav-link" to="/attractions"><li>attractions</li></Link>
-          <Link activeClassName="active-nav-link" to="/services"><li>services</li></Link>
-          <Link activeClassName="active-nav-link" to="/experiences"><li>Experiences</li></Link>
-          <Link activeClassName="active-nav-link" to="/contact"><li>contact</li></Link>
-        </ul>
+        <div>
+          <ul>
+            <Link activeClassName="active-nav-link" to="/"><li>home</li></Link>
+            <Link activeClassName="active-nav-link" to="/attractions"><li>attractions</li></Link>
+            <Link activeClassName="active-nav-link" to="/services"><li>services</li></Link>
+            <Link activeClassName="active-nav-link" to="/experiences"><li>Experiences</li></Link>
+            <Link activeClassName="active-nav-link" to="/about"><li>about</li></Link>
+            <Link activeClassName="active-nav-link" to="/contact"><li>contact</li></Link>
+          </ul>
+        </div>
       </div>
       <div className="last">
         <SocialIcons invert={props.invert} />

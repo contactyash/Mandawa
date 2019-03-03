@@ -22,7 +22,7 @@ export const BgImage = styled(Image)`
   }
 `
 
-export default function ImageSlider({ imagesArr, index, direction, fadeOn }) {
+export default function ImageSlider({ imagesArr, index, direction }) {
 
   const forwardTransitions = useTransition(index, p => p, {
     from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
@@ -38,13 +38,7 @@ export default function ImageSlider({ imagesArr, index, direction, fadeOn }) {
     config: (item, state) =>
       state === 'leave' ? { duration: 0 } : config.default,
   })
-  const fadeInTransition = useTransition(index, item => item, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: (item, state) =>
-      state === 'leave' ? { duration: 0 } : config.default,
-  })
+
   const renderImages = () => {
     if (direction) {
       return forwardTransitions.map(({ item, props, key }) => {
@@ -59,12 +53,43 @@ export default function ImageSlider({ imagesArr, index, direction, fadeOn }) {
     }
 
   }
-  return (
-    <div className="simple-trans-main" >
-      {
+  return renderImages()
 
-        renderImages()
-      }
-    </div>
-  )
+}
+
+
+export const useImageTransitions = (length) => {
+  const [index, set] = useState(0)
+  const [moveForward, setDirection] = useState(true)
+  const [timeStamp, setTimeStamp] = useState(0);
+  const handlePrev = useCallback(() => {
+    const timeStamp = new Date();
+    setDirection(false)
+    setTimeStamp(timeStamp.getTime())
+    set(state => state > 0 ? state - 1 : length - 1)
+  }, [])
+  const handleNext = useCallback(() => {
+    const timeStamp = new Date();
+    setDirection(true)
+    setTimeStamp(timeStamp.getTime())
+    set(state => (state + 1) % length)
+  }, [])
+  // useInterval(() => {
+  //   const time = new Date();
+  //   if (time.getTime() - timeStamp > 4000) {
+  //     if (moveForward) {
+  //       set(state => (state + 1) % length)
+  //     } else {
+  //       set(state => state > 0 ? state - 1 : length - 1)
+  //     }
+  //   }
+  // }, 4000
+  // )
+
+  return [
+    handleNext,
+    handlePrev,
+    index,
+    moveForward
+  ]
 }

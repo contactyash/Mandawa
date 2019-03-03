@@ -28,7 +28,7 @@ const SocialIcons = props => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.twitter.com/kYashRathore"
+      href="https://www.instagram.com/MandawaHeritageTours"
       className="social-link instagram"
       title="instagram"
     >
@@ -37,7 +37,7 @@ const SocialIcons = props => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.twitter.com/kYashRathore"
+      href="https://www.facebook.com/MandawaHeritageTours"
       className="social-link facebook"
       title="facebook"
     >
@@ -46,9 +46,9 @@ const SocialIcons = props => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.twitter.com/kYashRathore"
+      href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=gsgovindbanna@gmail.com&su=Enquiry&body=I would like to enquire about&tf=1"
       className="social-link twitter"
-      title="twitter"
+      title="gmail"
     >
       <GmailIcon invert={props.invert} />
     </a>

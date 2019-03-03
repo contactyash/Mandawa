@@ -1,18 +1,40 @@
 import React from 'react';
-import StyledCarousal from '../css/StyledCarousal'
 import Layout from '../components/Layout'
-import styled from 'styled-components'
+import ImageSlider, { BgImage, useImageTransitions } from '../components/Carousal'
+import { animated } from 'react-spring'
+import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
-const Hotels = props => {
+import Attraction from '../components/Attraction';
 
+const About = props => {
+  // const allAboutImages = {};
+  // props.data.placeholderImage.edges.forEach(node => {
+  //   const imageName = node.node.childImageSharp.fluid.originalName.replace(
+  //     /(.png|.jpg|.jpeg)/,
+  //     ''
+  //   );
+  //   return (allAboutImages[imageName] = node.node.childImageSharp.fluid);
+  // });
+  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(1);
+
+  // const allImagesArr = Object.entries(allAboutImages).map((arr, i) => (
+  //   ({ style }) =>
+  //     <animated.div style={{ ...style, height: "100%", width: "100%" }}>
+  //       <Attraction
+  //         fluid={arr[1]}
+  //         h2={attractionsArr[i].h2}
+  //         p={attractionsArr[i].p} />
+  //     </animated.div>
+  // ));
   return (
     <Layout invert fullWidth>
       <ExtendStyles>
-        <div className="prev button">
-          {/* <div onClick={handlePrev} className="imgNav"></div> */}
-        </div>
         <div className="imageDiv">
-          <h1> About Us</h1>
+          <div onClick={handlePrev} className="prev button">
+          </div>
+          <div style={{ paddingLeft: 20 }}>
+            <h1>About Us</h1>
+          </div>
           <p>
 
             Welcome to Mandawa Heritage Tours
@@ -26,13 +48,36 @@ const Hotels = props => {
             Here we bring tailor made Shekhawati tours for you. All these tour packages are custom designed to provide you options to travel from Jaipur, Delhi & other parts of India to colorful Shekhawati circuit. Many of these tour packages also covers the other popular tourist destinations like Agra (Taj Mahal), Bikaner & Jodhpur.
             Experience the fresco painted “open air art gallery” tour of Shekhawati Rajasthan. Tour packages covers Mandawa, Dundlod, Fatehpur Shekhawati and many other places to visit in  Shekhawati region of Rajasthan.
          </p>
-        </div>
-        <div className="next button">
-          {/* <div onClick={handleNext} className="imgNav"></div> */}
+          <div onClick={handleNext} className="next button">
+          </div>
         </div>
       </ExtendStyles>
     </Layout>
   );
 };
 
-export default Hotels;
+
+
+
+
+export const pageQuery = graphql`
+query {
+  placeholderImage: allFile(
+    filter: { sourceInstanceName: { eq: "aboutImages" } }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+              originalName
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+
+
+export default About;

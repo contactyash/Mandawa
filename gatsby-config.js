@@ -34,8 +34,43 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
+        name: `homepageImages`,
+        path: `${__dirname}/src/images/homepageImages`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `attractionsImages`,
+        path: `${__dirname}/src/images/attractionsImages/`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `servicesImages`,
+        path: `${__dirname}/src/images/servicesImages`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `contactImages`,
+        path: `${__dirname}/src/images/contactImages`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `packagesImages`,
+        path: `${__dirname}/src/images/packagesImages`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `aboutImages`,
+        path: `${__dirname}/src/images/aboutImages`
       }
     },
     {
