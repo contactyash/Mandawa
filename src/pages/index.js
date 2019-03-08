@@ -1,13 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout';
-import ImageSlider, {BgImage, useImageTransitions } from '../components/Carousal'
+import ImageSlider, { BgImage, useImageTransitions } from '../components/Carousal'
 import { animated } from 'react-spring'
 import StyledCarousal from '../css/StyledCarousal'
-import Image from 'gatsby-image'
-
-import styled from 'styled-components'
-
-
 
 const Index = props => {
   //we are using gatsby Img component which provides a blur effect which accepts a

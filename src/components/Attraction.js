@@ -13,7 +13,7 @@ position:relative;
   left:0;
   height:100%;
   width:100%;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.75);
 }
  .btn{
   position:absolute;

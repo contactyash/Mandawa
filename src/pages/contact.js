@@ -5,7 +5,35 @@ import { animated } from 'react-spring'
 import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
+import styled from 'styled-components';
+const ContactStyles = styled(ExtendStyles)`
+h2{
+  margin-top:0;
+}
+h5,h4{
+  margin:0
+}
+.text{
+  margin:0;
+}
+.address{
+  max-width:400px;
+  text-align:center;
+  margin:auto;
+}
+.contacts{
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  width:90%;
+  margin:auto;
 
+}
+.contacts > div{
+  flex:1
+}
+`
 
 const attractionsArr = [
   {
@@ -51,22 +79,55 @@ const Contact = props => {
   ));
   return (
     <Layout invert fullWidth>
-      <ExtendStyles>
+      <ContactStyles>
         <div className="imageDiv">
-          <div onClick={handlePrev} className="prev button">
+          <div style={{ display: "none" }} onClick={handlePrev} className="prev button">
           </div>
-          <div style={{ paddingLeft: 20 }}>
-            <h1>Contact</h1>
+          <div style={{ padding: 20, }}>
+            <div style={{ paddingLeft: 20 }}>
+              <h1>Contact</h1>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div>
+                <h2>Mandawa Heritage Tours</h2>
+                <div>
+                  <div className="address">
+                    <h4>Address</h4>
+                    <p className="text">   Mandawa Heritage Tours
+                      Near Gulab Rai, Ladia Haveli, Ward No.05
+                  Mandawa,Rajasthan (India) - 333704</p>
+                  </div>
+                  <div className="contacts">
+                    <div >
+                      <h4> For General Queries</h4>
+                      <p className="text">
+                        Info@MandawaHeritageTours.com <br />
+                        +91 98282 09856<br />
+                        +91 89191 39062<br />
+                      </p>
+                    </div>
+                    <div>
+                      <h4>Business Development Manager</h4>
+                      <p className="text"> Govind Singh<br />+91 9610925958 </p>
+                    </div>
+                    <div>
+
+                      <h4>Head- Tours & Operations</h4>
+                      <p className="text">Om Singh<br />+91 98282 09856</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
-          {/* <ImageSlider
-            imagesArr={allImagesArr}
-            index={index}
-            direction={moveForward}
-          /> */}
-          <div onClick={handleNext} className="next button">
+
+
+
+          <div style={{ display: "none" }} onClick={handleNext} className="next button">
           </div>
         </div>
-      </ExtendStyles>
+      </ContactStyles>
     </Layout>
   );
 };

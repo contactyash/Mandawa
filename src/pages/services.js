@@ -9,20 +9,16 @@ import Attraction from '../components/Attraction';
 
 const attractionsArr = [
   {
-    h2: 'Gulab Rai Ladia Haveli',
-    p: 'This haveli is located in the south of town, where the decoration of the outer and inner walls is perhaps the finest in Shekhawati. Blue washes here and there betray twentieth-century censorship of the erotic scenes that had been commonly acceptable one hundred years earlier.'
+    h2: 'Hotels',
+    p: 'Most important part of your trip is the place where you stay. We at Mandawa Heritage Tours provide you with a selection of all categories of hotels and homestays. For every hotel or homestay that we list, we deny many others on the basis of our own review. It is only after a personal visit that we even consider a place for your stay; this ensures you get only the gems from our treasured finds. We select these places on the basis of accommodation, services, affordability vis a vis the services, congeniality of hosts and the experience that it would add to your trip.'
   },
   {
-    h2: 'Ram Pratap Nemani Haveli',
-    p: 'The Haveli has been recently converted into a Heritage Hotel where one can experience untouched frescos dating back to the 18th century. Vivaana Culture Hotel is a captivating twin haveli adorned with fascinating paintings. Both the exterior and interior boast of superb and rare artifacts and frescos. The over a century old haveli has been lovingly restored and renovated maintaining the old world charm'
+    h2: 'Transportation',
+    p: 'At Mandawa Heritage Tours we take pride in being among the top good transporters in the region of shekhawati with a large range of vehicles. The range of transport options available are Toyota Etios cars, Toyota Innova, Toyota Innova Crysta, Deluxe Mini coaches and Deluxe Large coaches. '
   },
   {
-    h2: 'Goenka Double Haveli',
-    p: 'This haveli, with two gates, has a monumental façade of elephants and horses. The outer walls, jutting balconies, alcoves and overhanging upper storeys are replete with patterns and paintings, ranging from traditional Rajasthani women and religious motifs to Europeans wearing stylish hats and other Victorian finery'
-  },
-  {
-    h2: 'Murmuria Haveli',
-    p: 'The paintings of trains, cars, George V, and Venice were executed on the walls of this haveli during the 1930s by Balu Ram, one of the last working artists of the region. In pictures - like Lord Krishna with his cows in the English courtyard and a young Nehru on a horseback, holding the national flag - this haveli uses a unique theme blending the East with the West. The haveli also features a long frieze depicting a train with a crow flying above the engine and much activity at the railway crossing.'
+    h2: 'Guide Arrangement',
+    p: 'We at Mandawa Heritage Tours help you with guides and tour escorts. We have senior guides and escorts on our panel who have thorough knowledge of Shekhawati and its culture, they can enlighten you with facts and data that are rarely found in the history books .\nA heritage monument is as good as its described by the guide, hence its very important to have a qualified guide who can enrich your experience by providing beautiful insights about the place of visit.\nGuide services are available in all popular languages spoken in the world .'
   }
 ]
 
@@ -31,14 +27,14 @@ const attractionsArr = [
 
 const Services = props => {
   const allServicesImages = {};
-  // props.data.placeholderImage.edges.forEach(node => {
-  //   const imageName = node.node.childImageSharp.fluid.originalName.replace(
-  //     /(.png|.jpg|.jpeg)/,
-  //     ''
-  //   );
-  //   return (allServicesImages[imageName] = node.node.childImageSharp.fluid);
-  // });
-  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(1);
+  props.data.placeholderImage.edges.forEach(node => {
+    const imageName = node.node.childImageSharp.fluid.originalName.replace(
+      /(.png|.jpg|.jpeg)/,
+      ''
+    );
+    return (allServicesImages[imageName] = node.node.childImageSharp.fluid);
+  });
+  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(3);
 
   const allImagesArr = Object.entries(allServicesImages).map((arr, i) => (
     ({ style }) =>
@@ -58,11 +54,11 @@ const Services = props => {
           <div style={{ paddingLeft: 20 }}>
             <h1>Services</h1>
           </div>
-          {/* <ImageSlider
+          <ImageSlider
             imagesArr={allImagesArr}
             index={index}
             direction={moveForward}
-          /> */}
+          />
           <div onClick={handleNext} className="next button">
           </div>
         </div>
