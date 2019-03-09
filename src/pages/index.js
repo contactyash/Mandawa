@@ -21,7 +21,7 @@ const Index = props => {
     trackMouse: true
   });
   const allHomePageImages = {};
-  const [handleNext, handlePrev, index, moveForward, handleSlideResume] = useImageTransitions(20, 3500);
+  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(20, 3500);
 
   props.data.placeholderImage.edges.forEach(node => {
     const imageName = node.node.childImageSharp.fluid.originalName.replace(
@@ -31,12 +31,12 @@ const Index = props => {
     return (allHomePageImages[imageName] = node.node.childImageSharp.fluid);
   });
   const allImagesArr = Object.entries(allHomePageImages).map((arr, i) => (
-    ({ style }) => <animated.div onTouchStart={() => handleSlideResume(true)} onTouchEnd={() => handleSlideResume(false)} {...handlers} className="image" style={{ ...style }}><BgImage fluid={arr[1]} /></animated.div>
+    ({ style }) => <animated.div{...handlers} className="image" style={{ ...style }}><BgImage fluid={arr[1]} /></animated.div>
   ));
 
   return (
     <Layout fullWidth>
-      <StyledCarousal >
+      <StyledCarousal  >
         <div className="imageDiv">
           <div onClick={handlePrev} className="prev button">
           </div>

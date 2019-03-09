@@ -101,7 +101,7 @@ export const useImageTransitions = (length, delay) => {
         set(state => state > 0 ? state - 1 : length - 1)
       }
     }
-  }, resumeSlide ? null : delay
+  }, delay
   )
 
   return [
