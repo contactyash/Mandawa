@@ -91,17 +91,17 @@ export const useImageTransitions = (length) => {
     setTimeStamp(timeStamp.getTime())
     set(state => (state + 1) % length)
   }, [])
-  // useInterval(() => {
-  //   const time = new Date();
-  //   if (time.getTime() - timeStamp > 4000) {
-  //     if (moveForward) {
-  //       set(state => (state + 1) % length)
-  //     } else {
-  //       set(state => state > 0 ? state - 1 : length - 1)
-  //     }
-  //   }
-  // }, 4000
-  // )
+  useInterval(() => {
+    const time = new Date();
+    if (time.getTime() - timeStamp > 4000) {
+      if (moveForward) {
+        set(state => (state + 1) % length)
+      } else {
+        set(state => state > 0 ? state - 1 : length - 1)
+      }
+    }
+  }, 3500
+  )
 
   return [
     handleNext,
