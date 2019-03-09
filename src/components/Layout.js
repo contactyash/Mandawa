@@ -37,13 +37,17 @@ const StyledLayout = styled.div`
     background: #9acd32;
     color: ${props => props.invert ? props.theme.complementaryStateColor : props.theme.primarytateColor};
   }
-  @media (max-width: 376px) {
-    & > div {
-      padding: 20px 15px;
-    }
-  }
+
   .rest-page{
     background:${props => props.invert ? props.theme.complementary : props.theme.primary};
+  }
+  @media (max-width: 576px) {
+    & > div {
+      padding: 0;
+    }
+    .rest-page{
+      height:80vh;
+    }
   }
 `;
 

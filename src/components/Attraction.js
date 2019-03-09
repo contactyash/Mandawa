@@ -14,6 +14,7 @@ position:relative;
   height:100%;
   width:100%;
   background:rgba(0,0,0,0.75);
+  overflow-x:scroll;
 }
  .btn{
   position:absolute;
@@ -30,11 +31,24 @@ position:relative;
   left:30px
 }
 .center{
-  width:700px;
+  max-width:700px;
   text-align:center;
   color:burlywood;
   margin:0 auto;
 }
+}
+// .center::-webkit-scrollbar {
+//   width: 0px;
+// }
+// .center::-webkit-scrollbar-track {
+//   background: none;
+
+// }
+// .center::-webkit-scrollbar-thumb {
+//   background: burlywood;
+//   border-radius: 10px;
+//   height:100px;
+// }
 .heading{
 font-size:32px;
 }
@@ -53,7 +67,12 @@ const Attraction = ({ h2, p, fluid }) => {
       <div className="text">
         <div className="center">
           <h2 className="heading">{h2}</h2>
-          <p className="p-text">{p}</p>
+          <div
+            style={{ padding: 20 }}
+          >
+            <p className="p-text">{p}</p>
+
+          </div>
         </div>
       </div>
     </StyledAttraction>

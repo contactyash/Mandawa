@@ -30,17 +30,21 @@ height:70vh;
 }
 
    @media only screen and (max-width: 576px) {
-     width:100%;
-
-
-
+     width:99%;
+     height:99%;
+     .button{
+       display:none;
+     }
+     .imageDiv{
+       height:100%;
+     }
   }
 `
 export const ExtendStyles = styled(StyledCarousal)`
 
 .imageDiv {
   text-align:left;
-  overflow-y:scroll;
+  overflow-y:hidden;
   color:maroon;
  h1{
    margin-bottom:8px;

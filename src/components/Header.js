@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import Logo from './Logo';
@@ -71,6 +71,9 @@ margin-bottom:-10px;
 .last{
   flex:4
 }
+.menu-icon:{
+  display:none;
+}
 .active-nav-link li{
   background: ${props => props.invert ? props.theme.complementary : props.theme.primary};
   color: ${props => props.invert ? props.theme.primary : props.theme.complementary};
@@ -80,16 +83,80 @@ margin-bottom:-10px;
 
 }
 @media only screen and (max-width: 576px) {
+  height:20vh;
   overflow:hidden;
   .logo-text{
     font-size:20px;
   }
+  .first{
+    display:none;
+  }
+  .middle{
+    width:100%;
+    align-self:center;
+
+  }
  .logo-div{
    margin-left:10px;
+   max-width:200px;
  }
+
+ .menu-div{
+  position:fixed;
+  width: 100%;
+  height: 49px;
+  background: maroon;
+  top: 104px;
+  z-index:1;
+ }
+ .menu-icon{
+   margin-top:20px;
+   margin-left:10px;
+   width:30px;
+   height:5px;
+   background:burlywood;
+   position:relative;
+ }
+ .menu-icon::before,.menu-icon::after{
+  content:"";
+  position:absolute;
+  height:5px;
+  background:burlywood;
+ }
+ .menu-icon::before{
+  top:-8px;
+  left:0;
+  width:26px;
+
+ }
+ .menu-icon::after{
+   top:8px;
+   left:0;
+  width:34px;
+ }
+.menu-div >ul{
+  display:none;
+}
+.menu-icon.open{
+  display:none;
+}
+ul.open{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
+  width: 100%;
+}
 }
 `;
 const Header = (props) => {
+  const menuList = useRef();
+  const handleMenuOpen = (e) => {
+    e.target.classList.add('open');
+    menuList.current.classList.add("open");
+    console.log(e.target, menuList.current)
+  }
   return (
     <StyledHeader {...props}>
       <div className="first">
@@ -98,8 +165,9 @@ const Header = (props) => {
         <div className="logo-div">
           <p className="logo-text">Mandawa Heritage Tours</p>
         </div>
-        <div>
-          <ul>
+        <div className="menu-div">
+          <div onClick={handleMenuOpen} className="menu-icon"></div>
+          <ul ref={menuList}>
             <Link activeClassName="active-nav-link" to="/"><li>home</li></Link>
             <Link activeClassName="active-nav-link" to="/attractions"><li>attractions</li></Link>
             <Link activeClassName="active-nav-link" to="/services"><li>services</li></Link>

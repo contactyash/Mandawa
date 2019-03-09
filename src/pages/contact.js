@@ -6,6 +6,7 @@ import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
 import styled from 'styled-components';
+
 const ContactStyles = styled(ExtendStyles)`
 h2{
   margin-top:0;
@@ -15,6 +16,7 @@ h5,h4{
 }
 .text{
   margin:0;
+  word-break:break-all;
 }
 .address{
   max-width:400px;
@@ -33,6 +35,17 @@ h5,h4{
 .contacts > div{
   flex:1
 }
+.imageDiv{
+  overflow-y:scroll;
+}
+@media only screen and (max-width: 576px) {
+   .contacts{
+     flex-direction:column;
+   }
+   .contacts >div{
+     margin:auto;
+   }
+  }
 `
 
 const attractionsArr = [

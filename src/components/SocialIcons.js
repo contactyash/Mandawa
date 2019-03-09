@@ -22,6 +22,9 @@ const StyledSocial = styled.div`
 .facebook{
   margin:0 20px;
 }
+@media (max-width: 576px) {
+  margin-right:10px;
+}
 `;
 const SocialIcons = props => (
   <StyledSocial  >

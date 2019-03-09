@@ -5,7 +5,12 @@ import { animated } from 'react-spring'
 import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
-
+import styled from 'styled-components';
+const AboutStyles = styled(ExtendStyles)`
+.imageDiv{
+  overflow-y:scroll;
+}
+`
 const About = props => {
   // const allAboutImages = {};
   // props.data.placeholderImage.edges.forEach(node => {
@@ -28,7 +33,7 @@ const About = props => {
   // ));
   return (
     <Layout invert fullWidth>
-      <ExtendStyles>
+      <AboutStyles>
         <div className="imageDiv">
           <div style={{ display: "none" }} onClick={handlePrev} className="prev button">
           </div>
@@ -55,7 +60,7 @@ const About = props => {
           <div style={{ display: "none" }} onClick={handleNext} className="next button">
           </div>
         </div>
-      </ExtendStyles>
+      </AboutStyles>
     </Layout>
   );
 };

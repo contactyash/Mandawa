@@ -6,21 +6,38 @@ import Image from 'gatsby-image'
 import useInterval from './useInterval';
 import styled from 'styled-components'
 
+
 export const BgImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: -1;
-  height: 100%; // or whatever
+  height: ${props => props.height || '100%'};
 
   // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
   & > img {
-    object-fit:cover !important; // or whatever
-    object-position: 0% 0% !important; // or whatever
-    font-family: 'object-fit: cover !important; object-position: 0% 0% !important;' // needed for IE9+ polyfill
+    object-fit: ${props => props.fit || 'cover'} !important;
+    object-position: ${props => props.position || '50% 50%'} !important;
+    font-family: 'object-fit: ${props => props.fit || 'cover'} !important;
+     object-position: ${props => props.position || '50% 50%'} !important;'
   }
 `
+// export const BgImage = styled(Image)`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: -1;
+//   height: 100%; // or whatever
+
+//   // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
+//   & > img {
+//     object-fit:cover !important; // or whatever
+//     object-position: 0% 0% !important; // or whatever
+//     font-family: 'object-fit: cover !important; object-position: 0% 0% !important;' // needed for IE9+ polyfill
+//   }
+// `
 
 export default function ImageSlider({ imagesArr, index, direction }) {
 
@@ -74,17 +91,17 @@ export const useImageTransitions = (length) => {
     setTimeStamp(timeStamp.getTime())
     set(state => (state + 1) % length)
   }, [])
-  useInterval(() => {
-    const time = new Date();
-    if (time.getTime() - timeStamp > 4000) {
-      if (moveForward) {
-        set(state => (state + 1) % length)
-      } else {
-        set(state => state > 0 ? state - 1 : length - 1)
-      }
-    }
-  }, 4000
-  )
+  // useInterval(() => {
+  //   const time = new Date();
+  //   if (time.getTime() - timeStamp > 4000) {
+  //     if (moveForward) {
+  //       set(state => (state + 1) % length)
+  //     } else {
+  //       set(state => state > 0 ? state - 1 : length - 1)
+  //     }
+  //   }
+  // }, 4000
+  // )
 
   return [
     handleNext,
