@@ -22,7 +22,7 @@ margin-bottom:-10px;
   font-weight: 200;
   color:${props => props.invert ? props.theme.primary : props.theme.complementary};
   text-transform: uppercase;
-  text-shadow: 2px 2px;
+  text-shadow: 0.4px 0.4px;
   text-decoration: none;
   position: relative;
 }
@@ -93,6 +93,7 @@ margin-bottom:-10px;
   }
   .middle{
     width:100%;
+    margin-bottom:10px;
     align-self:center;
 
   }
@@ -155,7 +156,6 @@ const Header = (props) => {
   const handleMenuOpen = (e) => {
     e.target.classList.add('open');
     menuList.current.classList.add("open");
-    console.log(e.target, menuList.current)
   }
   return (
     <StyledHeader {...props}>
