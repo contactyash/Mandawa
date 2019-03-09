@@ -1,26 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: 'Yash Rathore',
-    // author: 'Yash Rathore',
-    description: `Passionate, self taught React developer,excited about everything new in React ecosystem,have worked on projects including Nextjs,Gatsby,GraphQL and Prisma`,
-    siteUrl: 'https://yashrathore.in/',
-    canonicalUrl: 'https://yashrathore.in',
-    image: 'https://yashrathore.in/yashrathore.png',
+    title: 'Mandawa Heritage Tours',
+    description: `Mandawa Heritage Tours is tours an travels service provider agency located in Mandawa, Rajasthan`,
+    siteUrl: 'https://manadawaheritagetours.com/',
+    canonicalUrl: 'https://manadawaheritagetours.com',
+    image: 'https://manadawaheritagetours.com/manadawaheritagetours.png',
     author: {
-      name: 'Yash Rathore',
+      name: 'Mandawa Heritage Tours',
       minibio: `
-        <strong>Yash Rathore</strong> is a self taught React developer.
-        He love working on projects involving Modern JavaScript and React. He lives in Churu, Rajasthan.
+        <strong>Mandawa Heritage Tours</strong> is tour and travels service provider agency located in Mandawa,Rajasthan.
       `
     },
     organization: {
-      name: 'Yash Rathore',
-      url: 'https://yashrathore.com',
-      logo: 'https://lengstorf.com/icons/icon-512x512.pn'
+      name: 'Mandawa Heritage Tours',
+      url: 'https://manadawaheritagetours.com',
+      logo: ""
     },
     social: {
-      twitter: '@kyashrathore',
-      fbAppID: '100017939978348'
+      twitter: '@manadawaheritagetours',
+      fbAppID: '1064878900381957'
     }
   },
   plugins: [

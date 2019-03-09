@@ -3,6 +3,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
 import 'typeface-montserrat';
 import './test.css';
+import SEO from './SEO';
 const GlobalStyles = createGlobalStyle`
  body {
     margin: 0;
@@ -34,7 +35,7 @@ const StyledLayout = styled.div`
   }
   & > div a:hover {
     box-shadow: 0 2px;
-    background: #9acd32;
+    background: maroon;
     color: ${props => props.invert ? props.theme.complementaryStateColor : props.theme.primarytateColor};
   }
 
@@ -64,6 +65,7 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <StyledLayout  {...rest}>
+          <SEO />
           <GlobalStyles />
           <Header invert={!this.props.invert} />
           <div className="rest-page">{children}</div>

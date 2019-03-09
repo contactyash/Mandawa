@@ -115,18 +115,22 @@ const Contact = props => {
                       <h4> For General Queries</h4>
                       <p className="text">
                         Info@MandawaHeritageTours.com <br />
-                        +91 98282 09856<br />
-                        +91 89191 39062<br />
+                        <a href="tel:+91 98282 09856">+91 98282 09856</a><br />
+                        <a href="tel:+91 89191 39062">+91 89191 39062</a><br />
                       </p>
                     </div>
                     <div>
                       <h4>Business Development Manager</h4>
-                      <p className="text"> Govind Singh<br />+91 9610925958 </p>
+                      <p className="text"> Govind Singh<br />
+                        <a href="tel:+91 9610925958">+91 9610925958</a><br />
+                      </p>
                     </div>
                     <div>
 
                       <h4>Head- Tours & Operations</h4>
-                      <p className="text">Om Singh<br />+91 98282 09856</p>
+                      <p className="text">Om Singh<br />
+                        <a href="tel:+91 98282 09856">+91 98282 09856</a><br />
+                      </p>
                     </div>
                   </div>
 

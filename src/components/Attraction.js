@@ -37,18 +37,18 @@ position:relative;
   margin:0 auto;
 }
 }
-// .center::-webkit-scrollbar {
-//   width: 0px;
-// }
-// .center::-webkit-scrollbar-track {
-//   background: none;
+.text::-webkit-scrollbar {
+  width: 0px;
+}
+.text::-webkit-scrollbar-track {
+  background: none;
 
-// }
-// .center::-webkit-scrollbar-thumb {
-//   background: burlywood;
-//   border-radius: 10px;
-//   height:100px;
-// }
+}
+.text::-webkit-scrollbar-thumb {
+  background: burlywood;
+  border-radius: 10px;
+  height:100px;
+}
 .heading{
 font-size:32px;
 }

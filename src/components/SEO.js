@@ -51,21 +51,14 @@ const SEO = ({ postData, frontmatter = {}, postImage, isBlogPost }) => (
             <html lang="en" />
             <meta name="description" content={description} />
             <meta name="image" content={image} />
-            <script
-              type="text/javascript"
-              src="https://platform.linkedin.com/badges/js/profile.js"
-              async
-              defer
-            />
-            <noscript>no javascript</noscript>
 
             {/* OpenGraph tags */}
             <meta property="og:url" content={url} />
             {isBlogPost ? (
               <meta property="og:type" content="article" />
             ) : (
-              <meta property="og:type" content="profile" />
-            )}
+                <meta property="og:type" content="profile" />
+              )}
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />

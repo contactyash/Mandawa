@@ -21,7 +21,7 @@ const Index = props => {
     trackMouse: true
   });
   const allHomePageImages = {};
-  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(20, 3500);
+  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(18, 4500);
 
   props.data.placeholderImage.edges.forEach(node => {
     const imageName = node.node.childImageSharp.fluid.originalName.replace(
