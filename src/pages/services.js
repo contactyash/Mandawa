@@ -5,8 +5,7 @@ import { animated } from 'react-spring'
 import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
-
-
+import { useSwipeable } from 'react-swipeable';
 const attractionsArr = [
   {
     h2: 'Hotels',
@@ -26,6 +25,18 @@ const attractionsArr = [
 
 
 const Services = props => {
+  const slide = (dir) => {
+    if (dir === "NEXT") {
+      handleNext()
+    } else if (dir === "PREV") {
+      handlePrev()
+    }
+  }
+  const handlers = useSwipeable({
+    onSwipedLeft: () => slide("NEXT"),
+    onSwipedRight: () => slide("PREV"),
+    trackMouse: true
+  });
   const allServicesImages = {};
   props.data.placeholderImage.edges.forEach(node => {
     const imageName = node.node.childImageSharp.fluid.originalName.replace(
@@ -34,11 +45,11 @@ const Services = props => {
     );
     return (allServicesImages[imageName] = node.node.childImageSharp.fluid);
   });
-  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(3);
+  const [handleNext, handlePrev, index, moveForward] = useImageTransitions(3, 3500);
 
   const allImagesArr = Object.entries(allServicesImages).map((arr, i) => (
     ({ style }) =>
-      <animated.div style={{ ...style, height: "100%", width: "100%" }}>
+      <animated.div {...handlers} style={{ ...style, height: "100%", width: "100%" }}>
         <Attraction
           fluid={arr[1]}
           h2={attractionsArr[i].h2}

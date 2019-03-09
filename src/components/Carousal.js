@@ -75,8 +75,9 @@ export default function ImageSlider({ imagesArr, index, direction }) {
 }
 
 
-export const useImageTransitions = (length) => {
-  const [index, set] = useState(0)
+export const useImageTransitions = (length, delay) => {
+  const [index, set] = useState(0);
+  const [resumeSlide, handleSlideResume] = useState(false);
   const [moveForward, setDirection] = useState(true)
   const [timeStamp, setTimeStamp] = useState(0);
   const handlePrev = useCallback(() => {
@@ -93,20 +94,21 @@ export const useImageTransitions = (length) => {
   }, [])
   useInterval(() => {
     const time = new Date();
-    if (time.getTime() - timeStamp > 4000) {
+    if (time.getTime() - timeStamp > delay) {
       if (moveForward) {
         set(state => (state + 1) % length)
       } else {
         set(state => state > 0 ? state - 1 : length - 1)
       }
     }
-  }, 3500
+  }, resumeSlide ? null : delay
   )
 
   return [
     handleNext,
     handlePrev,
     index,
-    moveForward
+    moveForward,
+    handleSlideResume
   ]
 }
