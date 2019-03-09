@@ -36,22 +36,25 @@ position:relative;
   color:burlywood;
   margin:0 auto;
 }
-}
+
 .text::-webkit-scrollbar {
   width: 0px;
 }
+
 .text::-webkit-scrollbar-track {
   background: none;
-
 }
+
 .text::-webkit-scrollbar-thumb {
   background: burlywood;
   border-radius: 10px;
   height:100px;
 }
+
 .heading{
 font-size:32px;
 }
+
 .p-text{
   font-size:18px;
   font-weight:200;

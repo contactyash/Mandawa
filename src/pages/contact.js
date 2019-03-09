@@ -6,6 +6,7 @@ import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 const ContactStyles = styled(ExtendStyles)`
 h2{

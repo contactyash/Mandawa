@@ -6,6 +6,7 @@ import StyledCarousal from '../css/StyledCarousal'
 import { ExtendStyles } from '../css/StyledCarousal'
 import Attraction from '../components/Attraction';
 import { useSwipeable } from 'react-swipeable';
+import { graphql } from 'gatsby';
 
 const attractionsArr = [
   {

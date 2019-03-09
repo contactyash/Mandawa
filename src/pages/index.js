@@ -4,6 +4,8 @@ import ImageSlider, { BgImage, useImageTransitions } from '../components/Carousa
 import { animated } from 'react-spring'
 import StyledCarousal from '../css/StyledCarousal'
 import { useSwipeable } from 'react-swipeable'
+import { graphql } from 'gatsby';
+
 const Index = props => {
   //we are using gatsby Img component which provides a blur effect which accepts a
   //fluid prop ,instead of quering each image we are query all image and creating a
